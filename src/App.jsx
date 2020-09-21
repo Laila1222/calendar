@@ -13,7 +13,7 @@ function App() {
     <div className="app">
       {/* <DatePicker />
       <ReactDatePicker /> */}
-      <Form/>
+      <Form roomData={rooms} />
     </div>
   );
 }

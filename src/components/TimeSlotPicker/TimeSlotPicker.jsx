@@ -10,6 +10,7 @@ import "../../../node_modules/appointment-picker/dist/appointment-picker.css";
 class TimeSlotPicker extends React.Component {
   constructor(props) {
     super(props);
+    this.disabledStartTimes = this.props.disabledStartTimes;
     this.options = {
       leadingZero: true,
       interval: 60,
@@ -17,13 +18,18 @@ class TimeSlotPicker extends React.Component {
       maxTime: 22,
       startTime: 8,
       endTime: 23,
-      disabled: ["09:00", "10:00", "16:00", "17:00"],
+      disabled: this.disabledStartTimes,
     };
     this.state = { time: {} };
     this.pickerRef = React.createRef();
     this.onTimeSelect = this.onTimeSelect.bind(this);
-  }
+
+    
   
+  }
+
+  
+ 
 
   onTimeSelect(event) {
     console.log("change.appo.picker", event.time);
@@ -36,7 +42,17 @@ class TimeSlotPicker extends React.Component {
     
   }
 
+  updateState = () => {
+    this.setState({ disabled: this.props.disabledStartTimes})
+  }
+
+
+  
+
   render() {
+    console.log(this.props.disabledStartTimes);
+    
+    console.log(this.options.disabled);
     return (
       <div>
         <input type="text" ref={this.pickerRef}></input>
