@@ -10,7 +10,7 @@ function ReactDatePicker({ returnSelectedDate }) {
 
   const [value, setValue] = useState(new Date());
   // In ISO format, that can be sent to parent
-  const [dateFormat, setDateFormat] = useState('2020-09-20T22:00:00.000Z');
+  const [dateFormat, setDateFormat] = useState('2020-09-22T22:00:00.000Z');
 
   const handleChange = (date) => {
     // Set value for datePicker library
